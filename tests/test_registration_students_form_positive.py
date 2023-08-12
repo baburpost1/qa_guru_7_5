@@ -27,7 +27,7 @@ def test_registration_students_form_positive():
     browser.element('[id="react-select-4-input"]').should(be.not_.enabled)
     browser.element('[id="react-select-3-input"]').type('NCR').press_enter()
     browser.element('[id="react-select-4-input"]').should(be.enabled).type('Delhi').press_enter()
-    browser.element('[id="submit"]').click()
+    browser.element('[id="submit"]').press_enter()
     #     Проверка итоговой таблицы
     browser.element('[class="table-responsive"]').should(have.text(
         f"{first_name} {last_name}"
