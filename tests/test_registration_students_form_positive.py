@@ -29,16 +29,16 @@ def test_registration_students_form_positive():
     browser.element('[id="react-select-4-input"]').should(be.enabled).type('Delhi').press_enter()
     browser.element('[id="submit"]').press_enter()
     #     Проверка итоговой таблицы
-    browser.element('[class="table-responsive"]').should(have.text(
-        f"{first_name} {last_name}"
-        and f"{email}"
-        and f"Male"
-        and f"{phone}"
-        and "01 February,1999"
-        and "Maths"
-        and "Reading, Music"
-        and "test.png"
-        and "CUrrent aDDress 12a Here"
-        and "NCR Delhi"
+    browser.element('[class="table-responsive"]>table>tbody').should(have.exact_text(
+    f"""Student Name {first_name} {last_name}
+Student Email {email}
+Gender Male
+Mobile {phone}
+Date of Birth 01 February,1999
+Subjects Maths
+Hobbies Reading, Music
+Picture test.png
+Address CUrrent aDDress 12a Here
+State and City NCR Delhi"""
     ))
 
